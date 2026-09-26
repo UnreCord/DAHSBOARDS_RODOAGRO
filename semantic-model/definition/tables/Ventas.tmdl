@@ -1,0 +1,35 @@
+table Ventas
+
+	column Fecha
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		summarizeBy: none
+		sourceColumn: Fecha
+
+	column Producto
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Producto
+
+	column Monto
+		dataType: double
+		formatString: #,0.00
+		summarizeBy: sum
+		sourceColumn: Monto
+
+	/// Suma total de ventas en el periodo seleccionado.
+	measure 'Total Ventas' = SUM(Ventas[Monto])
+		formatString: #,0.00
+
+	/// Cantidad de transacciones de venta registradas.
+	measure 'Cantidad de Ventas' = COUNTROWS(Ventas)
+		formatString: #,0
+
+	partition Ventas = m
+		mode: import
+		source =
+				let
+					Origen = Sql.Database("SERVIDOR", "BASE_DE_DATOS"),
+					Ventas = Origen{[Schema="dbo",Item="Ventas"]}[Data]
+				in
+					Ventas

@@ -1,0 +1,16 @@
+# Archivos temporales y de caché de Power BI Desktop
+*.pbix.lock
+.pbi/
+*.bak
+~$*
+
+# Archivos pesados/binarios de Power BI (por defecto no se versionan;
+# lo que se versiona es el modelo semántico en TMDL, que es texto plano).
+# Si necesitas versionar el .pbix o .pbip completo, quita esta línea.
+*.pbix
+
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
