@@ -1,0 +1,5 @@
+expression Servidor = "SERVIDOR" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: parametro-servidor
+
+expression BaseDeDatos = "BASE_DE_DATOS" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: parametro-base-de-datos

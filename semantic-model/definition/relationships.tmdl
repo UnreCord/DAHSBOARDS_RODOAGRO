@@ -1,0 +1,5 @@
+// Ejemplo (sin relaciones activas todavía en esta plantilla base).
+// Formato de referencia:
+// relationship <id-unico>
+// 	fromColumn: TablaHija.ColumnaFK
+// 	toColumn: TablaPadre.ColumnaPK
